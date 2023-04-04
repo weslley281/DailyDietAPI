@@ -1,0 +1,33 @@
+{
+  "name": "DailyDietAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "build": "tsup src --out-dir dist",
+    "clean": "tsc --build --clean",
+    "test": "npx vitest",
+    "migrate": "npx knex migrate:latest"
+  },
+  "keywords": [],
+  "author": "Weslley Henrique Vieira Ferraz",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "@types/supertest": "^2.0.12",
+    "supertest": "^6.3.3",
+    "ts-node-dev": "^2.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.2",
+    "vitest": "^0.29.8"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^8.3.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.15.0",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.6",
+    "zod": "^3.21.4"
+  }
+}
