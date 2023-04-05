@@ -6,23 +6,23 @@ export async function UsersRoutes(app: FastifyInstance) {
   app.post('/', async (request, response) => {
     const createUserBodySchema = z.object({
       id_user: z.string(),
-      nome: z.string(),
+      name: z.string(),
       email: z.string(),
-      telefone: z.string(),
-      peso: z.number(),
-      altura: z.number(),
+      phone: z.string(),
+      weight: z.number(),
+      hight: z.number(),
     });
 
-    const { id_user, nome, email, telefone, peso, altura } =
+    const { id_user, name, email, phone, weight, hight } =
       createUserBodySchema.parse(request.body);
 
     await knex('users').insert({
       id_user,
-      nome,
+      name,
       email,
-      telefone,
-      peso,
-      altura,
+      phone,
+      weight,
+      hight,
     });
 
     return response.status(201).send({ resposta: 'Usuário Criado' });

@@ -3,10 +3,11 @@ import { Knex } from 'knex';
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('meals', (table) => {
     table.uuid('id_meal').primary();
-    table.text('nome').notNullable();
-    table.text('descricao').notNullable();
-    table.dateTime('data').notNullable();
-    table.text('naDieta').notNullable();
+    table.uuid('id_user').notNullable();
+    table.text('name').notNullable();
+    table.text('description').notNullable();
+    table.dateTime('date').notNullable();
+    table.boolean('inDiet').notNullable();
     table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
   });
 }
